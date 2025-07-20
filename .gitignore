@@ -1,0 +1,12 @@
+linux/
+busybox/
+rootfs/
+*.ko
+*.mod
+*.o
+*.mod.c
+*.cmd
+*.symvers
+*.order
+*.cpio
+
