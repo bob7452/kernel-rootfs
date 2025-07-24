@@ -32,7 +32,7 @@ make CONFIG_PREFIX=../rootfs install
 echo "step 3. Add init script to rootfs"
 
 cat <<EOF > "$ROOTFS_DIR/init"
-#!/bin/bash
+#!/bin/sh
 mount -t proc none /proc
 mount -t sysfs none /sys
 echo "Welcome to minimal rootfs!"

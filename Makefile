@@ -17,4 +17,3 @@ clean:
 rebuild_cpio: clean
 	@echo "rebuild cpio"
 	cd rootfs && find . | cpio -o --format=newc > ../$(CPIO_FILE)
-	chmod +x ../$(CPIO_FILE)
