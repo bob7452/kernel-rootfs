@@ -23,3 +23,5 @@ rebuild_module:
 rebuild_cpio: clean rebuild_module
 	@echo "rebuild cpio"
 	cd rootfs && find . | cpio -o --format=newc > ../$(CPIO_FILE)
+	find . \( -path "./busybox" -o -path "./linux" -o -path "./rootfs" \) -prune -o -type f -name "*.ko" -exec cp {} rootfs/modules/ \;
+	cd rootfs && find . | cpio -o --format=newc > ../$(CPIO_FILE)
