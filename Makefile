@@ -1,5 +1,6 @@
 .PHONY: start
 CPIO_FILE := rootfs.cpio
+SUB_MODULE_DIR := modules_src/*
 
 start:
 	bash start_qemu.sh
@@ -13,7 +14,12 @@ clean:
 	else \
 		echo "Not find $(CPIO_FILE)"; \
 	fi
-
-rebuild_cpio: clean
+rebuild_module:
+	@echo "rebuild sub module"
+	@for dir in $(SUB_MODULE_DIR); do \
+		echo "Building $$dir"; \
+		cd $$dir && pwd && $(MAKE) clean && $(MAKE); cd -; \
+	done
+rebuild_cpio: clean rebuild_module
 	@echo "rebuild cpio"
 	cd rootfs && find . | cpio -o --format=newc > ../$(CPIO_FILE)

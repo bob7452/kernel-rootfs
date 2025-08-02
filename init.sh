@@ -9,7 +9,7 @@ echo "step 0. create rootfs dirs at $CUR_DIR"
 
 mkdir rootfs
 cd rootfs
-mkdir -p bin sbin etc proc sys usr/bin usr/sbin dev tmp
+mkdir -p bin sbin etc proc sys usr/bin usr/sbin dev tmp modules
 
 
 echo "step 1. linux kernel lastest version"
